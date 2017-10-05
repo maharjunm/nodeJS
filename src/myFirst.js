@@ -10,5 +10,5 @@ var date = require('./datePicker');
 
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write("Today's date is " + date.myDateTime());
+    res.write(req.url);
 }).listen(9090);
