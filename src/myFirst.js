@@ -6,8 +6,9 @@
 
 
 var http = require('http');
+var date = require('./datePicker');
 
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('Hello World!');
+    res.write("Today's date is " + date.myDateTime());
 }).listen(9090);
