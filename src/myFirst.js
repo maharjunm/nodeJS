@@ -6,13 +6,12 @@
 
 
 var http = require('http');
-var date = require('./datePicker');
-var url = require('url');
+var fs = require('fs');
 
 http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    var params = url.parse(req.url, true).query;
-    var year = params.year + " " + params.month;
-    res.write(year);
-    res.end();
+    fs.readFile('file.html', function (error, data) {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.write(data);
+        res.end();
+    });
 }).listen(9090);
