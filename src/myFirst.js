@@ -27,6 +27,11 @@ http.createServer(function (req, res) {
                 console.log("Content is written into the file");
             });
         })
-    })
+    });
+
+    fs.unlink('newFile.txt', function (error) {
+        if(error) throw error;
+        console.log("File has been deleted");
+    });
     res.end();
 }).listen(9090);
